@@ -18,5 +18,9 @@ class payment extends CI_Controller {
  }
  
 }
+
+function dulya($a,$b){
+	echo "dulya";
+}
  
 ?>

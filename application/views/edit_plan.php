@@ -103,7 +103,7 @@
 			<!-- logo -->
 			<div class="logo">
 				<a href="main.php">
-					<img src="img/logo.png" alt="" width="192" height="80" />
+					<img src="<?=base_url()?>img/logo.png" alt="" width="192" height="80" />
 				</a>
 			</div>
 			
@@ -195,21 +195,24 @@
 					<th>Days</th>
 					<th>Rate</th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>		
 				<tbody>
 					<?php if(isset($info) && (sizeof($info))>0){
 					foreach($info as $row){
-		$msgid   = $row->member_id;;
+							$member_id   = $row->member_id;
+							$plan_id=$row->plan_id;
 			echo '<tr>';
-			echo '<td>'.$row->plan_id.'</td>';
-			echo '<td>'.$row->member_id.'</td>';
-			echo '<td>'.$row->trainer_id.'</td>';
-			echo '<td>'.$row->plan_type.'</td>';
-			echo '<td>'.$row->details.'</td>';
-			echo '<td>'.$row->days.'</td>';
-			echo '<td>'.$row->rate.'</td>';
-			echo "<td><form action='edit_plan.php' method='post'><input type='hidden' name='name' value='" . $msgid . "'/><input type='submit' value='Edit Plan ' class='btn btn-info'/></form><form action='del_plan.php' method='post' onSubmit='return ConfirmDelete();'><input type='hidden' name='name' value='" . $msgid . "'/><input type='submit' value='Delete Plan' class='btn btn-danger'/></form></td></tr>";
+			echo '<td contenteditable="true">'.$row->plan_id.'</td>';
+			echo '<td contenteditable="true">'.$row->member_id.'</td>';
+			echo '<td contenteditable="true">'.$row->trainer_id.'</td>';
+			echo '<td contenteditable="true">'.$row->plan_type.'</td>';
+			echo '<td contenteditable="true">'.$row->details.'</td>';
+			echo '<td contenteditable="true">'.$row->days.'</td>';
+			echo '<td contenteditable="true">'.$row->rate.'</td>';
+			echo "<td><form action='".base_url()."edit_plan/edit_plan_detail' method='post'><input type='hidden' name='member_id' value='" . $member_id . "'/><input type='hidden' name='plan_id' value='" . $plan_id . "'/><input type='submit' value='Edit Plan ' class='btn btn-info'/></form></td>";
+			echo "<td><form action='".base_url()."edit_plan/delete_plan' method='post' ><input type='hidden' name='member_id' value='" . $member_id . "'/><input type='hidden' name='plan_id' value='" . $plan_id . "'/><input type='submit' value='Delete Plan ' class='btn btn-danger'/></form></td></tr>";
 			}
 			}?>															
 				</tbody>

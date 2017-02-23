@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="neon/css/font-icons/entypo/css/animation.css"  id="style-resource-3">
     <link rel="stylesheet" href="neon/css/neon.css"  id="style-resource-5">
     <link rel="stylesheet" href="neon/css/custom.css"  id="style-resource-6">
-
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     	
 	<script src="js/eakroko.min.js"></script>
 	
@@ -159,12 +159,12 @@
 
 		<hr />
 
-		<form action="new_plan/submitPlan" enctype="multipart/form-data" method="POST" role="form" class="form-horizontal form-groups-bordered">
+		<form action="<?=base_url()?>new_plan/submitPlan" enctype="multipart/form-data" method="POST" role="form" class="form-horizontal form-groups-bordered">
 
 			<div class="form-group">
 				<label for="field-1" class="col-sm-3 control-label">Member ID :</label>					
 					<div class="col-sm-5">
-					:<select name="member_list" autocomplete="off" required>
+					<select  class="form-control"name="member_list" autocomplete="off" required>
 						<option value="">Select Member ID</option>
 						<?php
     foreach($members as $member)
@@ -187,7 +187,7 @@
 			<div class="form-group">
 				<label for="field-1" class="col-sm-3 control-label">Assigned Trainer :</label>					
 					<div class="col-sm-5">
-						:<select name="trainer_list" autocomplete="off" required>
+						<select class="form-control" name="trainer_list" autocomplete="off" required>
 						<option value="">Select Trainer ID</option>
 						<?php
     foreach($trainers as $trainer)

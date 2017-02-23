@@ -25,4 +25,40 @@ function get_plans($member_id){
 	return array('info'=>$query->result());
 
 }
+
+function update_plan($data){
+	$info = array(
+               'plan_id' => $data['plan_id'],
+               'member_id' => $data['member_id'],
+			   'plan_type' => $data['plan_type'],
+			   'details' => $data['details'],
+			   'trainer_id' => $data['trainer_id'],
+			   'days' =>$data['days'],
+			   'rate' =>$data['rate'],
+              
+            );
+	
+	$this -> db -> where('plan_id',$data['plan_id']);
+	$this -> db -> update('member_plan',$info);
+	$num=$this->db->affected_rows();
+	if($num>0){
+		return 1;
+	}else{
+		return 0;
+	}
+
+}
+
+function delete_plan($data){
+$this -> db -> where('member_id', $data['member_id']);
+$this -> db -> where('plan_id', $data['plan_id']);
+  $this -> db -> delete('member_plan');
+  $num=$this->db->affected_rows();
+	if($num==1){
+		return 1;
+	}else{
+		return 0;
+	}
+
+}
 }

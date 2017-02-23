@@ -6,7 +6,7 @@ class user_m extends CI_Model {
  {
 	echo $username;
 	echo $password;
-   $this -> db -> select('user_name, password');
+   $this -> db -> select('user_name, password,user_type');
    $this -> db -> from('auth_user');
    $this -> db -> where('user_name', $username);
    $this -> db -> where('password', $password);

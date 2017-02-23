@@ -21,11 +21,11 @@
    <?php echo form_open('VerifyLogin'); ?>
 						  <fieldset class="input">
 						    <p id="login-form-username">
-						      <label for="modlgn_username">User name</label>
+						      <label for="modlgn_username"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User name</label>
 						      <input id="user_name" type="text" name="user_name" class="inputbox" size="18" autocomplete="off">
 						    </p>
 						    <p id="login-form-password">
-						      <label for="modlgn_passwd">Password</label>
+						      <label for="modlgn_passwd"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>Password</label>
 						      <input id="modlgn_passwd" type="password" name="password" class="inputbox" size="18" autocomplete="off">
 						    </p>
 						    <div class="remember">

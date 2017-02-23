@@ -158,8 +158,14 @@
 		
 
 		<hr />
-		<h2>Payments</h2>
-		<form role="form" action="" method="post" class="form-horizontal form-groups-bordered">
+		<h2>Due Payments</h2>
+<script>
+	function comfirmPayment(){
+		
+		var r = confirm("Confirm Payment");
+		return r;
+	}
+</script>		
 					
 <div class="form-group">		
 					
@@ -178,20 +184,23 @@
 				<tbody>
 					<?php if((sizeof($payments))>0){
 					foreach($payments as $row){
-						$msgid   = $row->member_id;;
+						$member_id = 0;
+						$member_id   = $row->member_id;
+						$plan_id  = $row->plan_id;
+						$rate=$row->rate;
 			echo '<tr>';
 			echo '<td>'.$row->member_id.'</td>';
 			echo '<td>'.$row->plan_type.'</td>';
 			echo '<td>'.$row->trainer_id.'</td>';
 			echo '<td>'.$row->payment.'</td>';	
-				echo "<td><form action='make_payments.php' method='post'><input type='hidden' name='name' value='" . $msgid . "'/><input type='submit' value='Add Payment ' class='btn btn-info'/></form></td></tr>";
-				 $msgid = 0;
+				echo "<td><form action='".base_url()."paymentsuccess/pay_by_admin' method='post' onsubmit='return comfirmPayment()'><input type='hidden' name='member_id' value='" . $member_id . "'/><input type='hidden' name='plan_id' value='" .$plan_id. "'/><input type='hidden' name='rate' value='" . $rate . "'/><input type='submit' value='Add Payment ' class='btn btn-info'/></form></td></tr>";
+				 
 					}}?>				
 									
 				</tbody>
 
 		</table>
-		</form>
+		
 		
 		
 			<?php //include('footer.php'); ?>

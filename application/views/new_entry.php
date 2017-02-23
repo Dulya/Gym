@@ -36,7 +36,7 @@ page_protect();
 	<link rel="stylesheet" href="../../css/plugins/datepicker/datepicker.css">
 	<!-- Plupload -->
 	<link rel="stylesheet" href="../../css/plugins/plupload/jquery.plupload.queue.css">
-
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
 
 	<!-- jQuery -->
 	<script src="../../js/jquery.min.js"></script>
